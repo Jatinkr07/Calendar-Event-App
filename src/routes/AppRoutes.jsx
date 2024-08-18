@@ -17,7 +17,7 @@ const AppRoutes = () => (
     <Route path="/add-event" element={<EventForm />} />
 
     {/* Route for editing an existing event by event ID */}
-    <Route path="/edit-event/:id" element={<EventForm editMode />} />
+    <Route path="/edit-event/:id" element={<EventForm editMode={true} />} />
   </Routes>
 );
 

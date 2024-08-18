@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import EventDetails from "../components/EventDetails";
+import { useParams } from "react-router-dom";
+import EventForm from "../components/EventForm";
 import styled from "styled-components";
 
 const PageWrapper = styled.div`
@@ -8,9 +9,11 @@ const PageWrapper = styled.div`
 `;
 
 const EventDetailsPage = () => {
+  const { id } = useParams(); // Get event ID from route parameters
+
   return (
     <PageWrapper>
-      <EventDetails />
+      <EventForm editMode={true} eventId={id} />
     </PageWrapper>
   );
 };

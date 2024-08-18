@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import Reasct, { useContext } from "react";
+import React, { useContext } from "react";
 import { EventContext } from "../context/EventContext";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
@@ -43,7 +43,7 @@ const EventDetails = () => {
   const { id } = useParams();
   const { events, deleteEvent } = useContext(EventContext);
   const navigate = useNavigate();
-  const event = events.find((event) => event.id === parseInt(id));
+  const event = events.find((event) => event.id === parseInt(id, 10)); // Ensure id is parsed as integer
 
   if (!event) {
     return <p>Event not found</p>;
@@ -60,12 +60,8 @@ const EventDetails = () => {
       <p>Date: {new Date(event.date).toLocaleDateString()}</p>
       <p>Category: {event.category}</p>
       <p>Description: {event.description}</p>
-      <EditButton className="edit" to={`/edit-event/${event.id}`}>
-        Edit Event
-      </EditButton>
-      <Button className="delete" onClick={handleDelete}>
-        Delete Event
-      </Button>
+      <EditButton to={`/edit-event/${event.id}`}>Edit Event</EditButton>
+      <Button onClick={handleDelete}>Delete Event</Button>
     </DetailsWrapper>
   );
 };

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const EventListWrapper = styled.div`
   margin: 20px 0;
+  font-family: "Arial", sans-serif;
 
   ul {
     list-style-type: none;
@@ -9,24 +10,32 @@ export const EventListWrapper = styled.div`
   }
 
   li {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 
     &:hover {
-      background-color: #007bff;
+      background-color: #0056b3;
       color: white;
+      transform: translateY(-2px);
     }
 
     a {
       text-decoration: none;
       color: inherit;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
 
       &:hover {
+        color: #ffcc00;
         text-decoration: underline;
       }
     }
